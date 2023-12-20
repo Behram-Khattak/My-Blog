@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CustomerResource\Pages;
-use App\Filament\Resources\CustomerResource\RelationManagers;
-use App\Models\Customer;
+use App\Filament\Resources\PostResource\Pages;
+use App\Filament\Resources\PostResource\RelationManagers;
+use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CustomerResource extends Resource
+class PostResource extends Resource
 {
-    protected static ?string $model = Customer::class;
+    protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,11 +23,7 @@ class CustomerResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required()
-                                                        ->placeholder('Enter Name'),
-                Forms\Components\TextInput::make('email')->email()->required()
-                                                        ->placeholder('Enter Email'),
-                Forms\Components\FileUpload::make('file upload')->required(),
+                //
             ]);
     }
 
@@ -35,7 +31,7 @@ class CustomerResource extends Resource
     {
         return $table
             ->columns([
-                // Table::make('customers'),
+                //
             ])
             ->filters([
                 //
@@ -60,9 +56,9 @@ class CustomerResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCustomers::route('/'),
-            'create' => Pages\CreateCustomer::route('/create'),
-            'edit' => Pages\EditCustomer::route('/{record}/edit'),
+            'index' => Pages\ListPosts::route('/'),
+            'create' => Pages\CreatePost::route('/create'),
+            'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
 }
