@@ -19,26 +19,26 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Select::make('category')
-                                            ->options([
-                                                'Web Development',
-                                                'Artificial Intelligence',
-                                            ])
-                                            ->placeholder('Select Category')
-                                            ->required(),
+                                        ->options([
+                                            1 => 'Web Development',
+                                            2 => 'Artificial Intelligence',
+                                        ])
+                                        ->placeholder('Select Category')
+                                        ->required(),
 
                 Forms\Components\TextInput::make('title')
-                                        ->live(onBlur: true)
-                                        ->afterStateUpdated(function (Set $set, $state) {
-                                            $set('slug', Str::slug($state));
-                                        })
-                                        ->required(),
+                                            ->live(onBlur: true)
+                                            ->afterStateUpdated(function (Set $set, $state) {
+                                                $set('slug', Str::slug($state));
+                                            })
+                                            ->required(),
 
                 Forms\Components\RichEditor::make('content')
                                         ->columnSpanFull()
@@ -69,7 +69,11 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('category'),
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('content'),
+                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\ImageColumn::make('thumbnail')
             ])
             ->filters([
                 //
