@@ -7,6 +7,7 @@ use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -24,6 +25,9 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('category')
+                                            ->afterStateUpdated(function (Set $set, $state) {
+                                                $set('category', ucwords($state));
+                                            })
                                             ->required()
                                             ->columnSpanFull()
             ]);
@@ -33,7 +37,7 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('categories')
+                Tables\Columns\TextColumn::make('category')
             ])
             ->filters([
                 //

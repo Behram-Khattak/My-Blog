@@ -27,8 +27,6 @@ class PostResource extends Resource
             ->schema([
                 Forms\Components\Select::make('category')
                                         ->options([
-                                            1 => 'Web Development',
-                                            2 => 'Artificial Intelligence',
                                         ])
                                         ->placeholder('Select Category')
                                         ->required(),
