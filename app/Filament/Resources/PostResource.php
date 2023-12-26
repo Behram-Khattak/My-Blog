@@ -4,8 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
+use App\Models\Category;
 use App\Models\Post;
 use Filament\Forms;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
@@ -25,7 +27,7 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('category')
+                Forms\Components\Select::make('category_id')
                                         ->relationship('categories', 'category')
                                         ->searchable()
                                         ->preload()
@@ -44,7 +46,7 @@ class PostResource extends Resource
                                         ->required(),
 
                 Forms\Components\TextInput::make('slug')
-                                            ->disabled()
+                                            // ->disabled()
                                             ->required(),
 
                 Forms\Components\TagsInput::make('tags')
@@ -68,10 +70,11 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category'),
+                Tables\Columns\TextColumn::make('category_id'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('content'),
                 Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('tags'),
                 Tables\Columns\ImageColumn::make('thumbnail')
             ])
             ->filters([
