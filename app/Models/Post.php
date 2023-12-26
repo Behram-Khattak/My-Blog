@@ -28,7 +28,7 @@ class Post extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function category(): BelongsTo
+    public function categories(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }

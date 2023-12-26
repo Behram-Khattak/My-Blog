@@ -26,8 +26,9 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('category')
-                                        ->options([
-                                        ])
+                                        ->relationship('categories', 'category')
+                                        ->searchable()
+                                        ->preload()
                                         ->placeholder('Select Category')
                                         ->required(),
 
