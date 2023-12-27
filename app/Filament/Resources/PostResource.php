@@ -46,7 +46,6 @@ class PostResource extends Resource
                                         ->required(),
 
                 Forms\Components\TextInput::make('slug')
-                                            // ->disabled()
                                             ->required(),
 
                 Forms\Components\TagsInput::make('tags')
