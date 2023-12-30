@@ -28,7 +28,7 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('category_id')
-                                        ->relationship('categories', 'category')
+                                        ->relationship('category', 'category')
                                         ->searchable()
                                         ->preload()
                                         ->placeholder('Select Category')
@@ -69,9 +69,10 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_id'),
+                Tables\Columns\TextColumn::make('category.category'),
                 Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('content'),
+                Tables\Columns\TextColumn::make('content')
+                                            ->html(),
                 Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('tags'),
                 Tables\Columns\ImageColumn::make('thumbnail')
