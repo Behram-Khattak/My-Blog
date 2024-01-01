@@ -11,8 +11,10 @@ use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Widgets\Widget;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\CategoryResource\Widgets\StatsOverview;
 
 class CategoryResource extends Resource
 {
@@ -57,6 +59,13 @@ class CategoryResource extends Resource
     {
         return [
             'index' => Pages\ManageCategories::route('/'),
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            // 'views' => Wi\StatsOverview::getStats(),
         ];
     }
 }
