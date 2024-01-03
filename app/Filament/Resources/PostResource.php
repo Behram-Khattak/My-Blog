@@ -70,12 +70,12 @@ class PostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('category.category'),
+                Tables\Columns\ImageColumn::make('thumbnail'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('content')
                                             ->html(),
                 Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('tags'),
-                Tables\Columns\ImageColumn::make('thumbnail')
             ])
             ->filters([
                 //

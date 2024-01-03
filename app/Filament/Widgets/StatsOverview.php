@@ -16,12 +16,18 @@ class StatsOverview extends BaseWidget
         return [
             Stat::make('Categories', Category::count())
                 ->icon('heroicon-o-list-bullet'),
+
             Stat::make('Posts', Post::count())
                 ->icon('heroicon-o-clipboard-document-list'),
+
             Stat::make('Tags', Tag::count())
                 ->icon('heroicon-o-tag'),
+
             Stat::make('Comments', Comment::count())
                 ->icon('heroicon-o-chat-bubble-left-right'),
+
+            Stat::make('Likes', '20')
+                ->icon('heroicon-o-hand-thumb-up'),
         ];
     }
 }

@@ -30,6 +30,7 @@ class CategoryResource extends Resource
                                             ->afterStateUpdated(function (Set $set, $state) {
                                                 $set('category', ucwords($state));
                                             })
+                                            ->unique()
                                             ->required()
                                             ->columnSpanFull()
             ]);
