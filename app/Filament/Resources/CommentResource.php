@@ -31,7 +31,8 @@ class CommentResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('user'),
+                Tables\Columns\TextColumn::make('comment')
             ])
             ->filters([
                 //
