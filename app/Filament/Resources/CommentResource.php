@@ -38,7 +38,6 @@ class CommentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
@@ -61,7 +60,6 @@ class CommentResource extends Resource
             'index' => Pages\ListComments::route('/'),
             'create' => Pages\CreateComment::route('/create'),
             'edit' => Pages\EditComment::route('/{record}/edit'),
-            'view' => Pages\ViewComment::route('/{record}/view'),
         ];
     }
 }
