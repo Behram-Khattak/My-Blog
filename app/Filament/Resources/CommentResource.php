@@ -31,13 +31,13 @@ class CommentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user'),
                 Tables\Columns\TextColumn::make('comment')
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -60,6 +60,7 @@ class CommentResource extends Resource
             'index' => Pages\ListComments::route('/'),
             'create' => Pages\CreateComment::route('/create'),
             'edit' => Pages\EditComment::route('/{record}/edit'),
+            'view' => Pages\ViewComment::route('/{record}/view'),
         ];
     }
 }
