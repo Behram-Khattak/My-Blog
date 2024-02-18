@@ -1,9 +1,5 @@
-<div class="flex gap-4">
-    <p class="text-red-500">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, beatae numquam dolorem modi porro dolores dignissimos. Assumenda, magnam recusandae placeat fugiat asperiores esse eaque officiis impedit cum. Laboriosam, voluptas tenetur.
-    </p>
-
-    <p class="text-red-500">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, beatae numquam dolorem modi porro dolores dignissimos. Assumenda, magnam recusandae placeat fugiat asperiores esse eaque officiis impedit cum. Laboriosam, voluptas tenetur.
+<div class="w-full border p-4">
+    <p class="text-red-500 bg-red-800">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque sed itaque voluptas, natus consequatur minus ut eum magni fugit blanditiis inventore consectetur magnam voluptates id sint deserunt soluta eveniet repudiandae.
     </p>
 </div>
